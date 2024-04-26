@@ -1,7 +1,7 @@
 import Body from "../Body/Body";
 import { Header } from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
-import { Wrapper } from "./Home";
+import { Wrapper } from "./Style";
 
 const Home = () => {
   return (
