@@ -1,17 +1,34 @@
 import { sidebarOptions } from "./Constants";
-import { Wrapper } from "./Style";
+import { MainDiv, Wrapper } from "./Style";
 const Sidebar = () => {
   return (
     <Wrapper>
       {sidebarOptions.map((item) => {
-        console.log("item", item);
         return (
-          <div className="fill" key={item.key}>
-            <span style={{ marginRight: "10px" }}>{item.icon()}</span>
-            <span>{item.label}</span>
-          </div>
+          <MainDiv key={item.key}>
+            <div>
+              <span className="list-item">{item.icon()}</span>
+              {item.label}
+            </div>
+          </MainDiv>
         );
       })}
+      <div style={{ paddingTop: 5 }}>
+        <h1 style={{ paddingTop: 5 }}>Subscriptions</h1>
+        <ul>
+          <li>Games</li>
+          <li>Music</li>
+          <li>Songs</li>
+          <li>New</li>
+        </ul>
+        <h1 style={{ paddingTop: 5 }}> Live</h1>
+        <ul>
+          <li>Games</li>
+          <li>Music</li>
+          <li>Songs</li>
+          <li>New</li>
+        </ul>
+      </div>
     </Wrapper>
   );
 };

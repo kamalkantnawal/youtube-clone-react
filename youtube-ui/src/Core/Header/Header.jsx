@@ -1,29 +1,36 @@
-import { Wrapper } from "./Style";
-import { RxHamburgerMenu } from "react-icons/rx";
-import { FaRegUserCircle } from "react-icons/fa";
-
-import youtube from "../../assets/youtube.jpg";
+import { useDispatch, useSelector } from "react-redux";
 import Search from "./Search";
+import { IMG, Wrapper } from "./Style";
+import { updateProperty } from "../../Store/Reducers/AppState";
 
-export const Header = () => {
+const Header = () => {
+  const dispatch = useDispatch();
+  const flag = useSelector((store) => store.appState.toggleState);
+  const iconClicked = () => {
+    dispatch(
+      updateProperty({
+        path: "toggleState",
+        value: !flag,
+      })
+    );
+  };
   return (
     <Wrapper>
-      <div className="leftSide">
-        <div>
-          <RxHamburgerMenu size={28} style={{ marginBottom: "12px" }} />
-          <span>
-            <img
-              style={{ width: "100px", marginLeft: "10px" }}
-              alt="youtube logo"
-              src={youtube}
-            ></img>
-          </span>
-        </div>
+      <div className="left-nav">
+        <IMG
+          onClick={iconClicked}
+          src="https://cdn.iconscout.com/icon/free/png-256/free-hamburger-menu-462145.png?f=webp"
+        />
+        <IMG src="https://cdn.mos.cms.futurecdn.net/8gzcr6RpGStvZFA2qRt4v6-1200-80.jpg" />
       </div>
-      <Search />
-      <div className="rightSide">
-        <FaRegUserCircle size={28} />
+      <div className="mid-nav">
+        <Search />
+      </div>
+      <div className="right-nav">
+        <IMG src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" />
       </div>
     </Wrapper>
   );
 };
+
+export default Header;

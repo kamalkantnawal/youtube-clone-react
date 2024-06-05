@@ -1,10 +1,15 @@
-import Home from "./Core/Home/Home.jsx";
+import Home from "./Core/Home/Home";
+import "./App.css";
+import { Provider } from "react-redux";
+import store from "./Store/store";
 
 const App = () => {
   return (
-    <div>
-      <Home />
-    </div>
+    <Provider store={store}>
+      <div>
+        <Home />
+      </div>
+    </Provider>
   );
 };
 

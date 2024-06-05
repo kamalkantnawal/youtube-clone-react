@@ -1,5 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import AppState from "./Reducers/AppState";
 
-export const store = configureStore({
-  reducer: {},
+const store = configureStore({
+  reducer: {
+    appState: AppState,
+  },
 });
+export default store;

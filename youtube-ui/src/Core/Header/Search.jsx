@@ -1,15 +1,15 @@
 import { Button, Input } from "antd";
-
+import { SearchDiv } from "./Style";
 import { IoMdSearch } from "react-icons/io";
 
 const Search = () => {
   return (
-    <div className="searchBar">
-      <Input type="text" style={{ width: "50%" }} className="round-right" />
-      <Button className="icon round-left">
-        <IoMdSearch size={28} />
+    <SearchDiv>
+      <Input className="search" />
+      <Button className="button" style={{ border: "0.3px solid #d3d0d0" }}>
+        <IoMdSearch size={24} />
       </Button>
-    </div>
+    </SearchDiv>
   );
 };
 
