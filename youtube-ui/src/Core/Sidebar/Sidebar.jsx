@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
-import { sidebarOptions } from "./Constants";
+
 import { MainDiv, Wrapper } from "./Style";
+import { sidebarOptions } from "../Constants";
 const Sidebar = () => {
   const flag = useSelector((store) => store.appState.toggleState);
   return flag ? (

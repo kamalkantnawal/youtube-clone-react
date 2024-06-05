@@ -21,6 +21,8 @@ export const Wrapper = styled.div`
         flag ? "calc(100% - 170px)" : "calc(100% - 50px)"}
       height: 100%;
       transition: width 0.3s;
+      // background-color:red;
+      margin:15px;
     }
   }
 `;
