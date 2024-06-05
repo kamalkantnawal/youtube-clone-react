@@ -1,12 +1,14 @@
+import { useSelector } from "react-redux";
 import { sidebarOptions } from "./Constants";
 import { MainDiv, Wrapper } from "./Style";
 const Sidebar = () => {
-  return (
+  const flag = useSelector((store) => store.appState.toggleState);
+  return flag ? (
     <Wrapper>
       {sidebarOptions.map((item) => {
         return (
-          <MainDiv key={item.key}>
-            <div>
+          <MainDiv flag={flag} key={item.key}>
+            <div style={{ cursor: "pointer" }}>
               <span className="list-item">{item.icon()}</span>
               {item.label}
             </div>
@@ -29,6 +31,18 @@ const Sidebar = () => {
           <li>New</li>
         </ul>
       </div>
+    </Wrapper>
+  ) : (
+    <Wrapper>
+      {sidebarOptions.map((item) => {
+        return (
+          <MainDiv key={item.key}>
+            <div style={{ cursor: "pointer" }}>
+              <span className="list-item">{item.icon()}</span>
+            </div>
+          </MainDiv>
+        );
+      })}
     </Wrapper>
   );
 };

@@ -10,5 +10,6 @@ export const MainDiv = styled.div`
   padding: 5px;
   .list-item {
     padding-right: 10px;
+    font-size: ${({ flag }) => (flag ? "18px" : "28px")};
   }
 `;
