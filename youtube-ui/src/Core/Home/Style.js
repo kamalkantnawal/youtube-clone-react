@@ -3,26 +3,29 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
+  position: relative;
 
   .layout {
     width: 100%;
-    height: calc(100% - 52px);
+    height: 100%;
+    position: relative;
     display: flex;
-    background-color: light-pink;
+
     .sidebar {
-      width: ${({ flag }) => (flag ? "170px" : "50px")}
+      width: ${({ flag }) => (flag ? "100px" : "200px")};
       height: 100%;
       box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px;
       transition: width 0.3s;
     }
+
     .content {
-      width: ${({ flag }) =>
-        flag ? "calc(100% - 170px)" : "calc(100% - 50px)"}
+      width: ${({ flag }) => `calc(100% - ${flag ? "100px" : "200px"})`};
       height: 100%;
+      position: relative;
+      padding: 20px 10px;
       transition: width 0.3s;
-      // background-color:red;
-      margin:15px;
+      margin: 15px;
+      overflow: auto;
     }
   }
 `;

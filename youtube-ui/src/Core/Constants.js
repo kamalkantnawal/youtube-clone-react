@@ -62,10 +62,7 @@ export const ButtonListOptions = [
     label: "Music",
     key: "music",
   },
-  {
-    label: "Mixes",
-    key: "mixes",
-  },
+
   {
     label: "Gaming",
     key: "gaming",
@@ -75,3 +72,9 @@ export const ButtonListOptions = [
     key: "cricket",
   },
 ];
+
+export const YOUTUBE_API =
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=";
+//"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=Ks-_Mh1QhMc%2Cc0KYU2j0TM4%2CeIho2S0ZahI&key=";
+
+//"https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&myRating=like&key=");

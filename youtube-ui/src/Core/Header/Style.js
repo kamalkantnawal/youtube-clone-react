@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  // position: fixed;
+  // top: 0;
+  // z-index: 5;
   display: grid;
   grid-auto-flow: column;
   padding: 4px;

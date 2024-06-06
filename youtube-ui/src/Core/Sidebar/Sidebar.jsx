@@ -4,7 +4,7 @@ import { MainDiv, Wrapper } from "./Style";
 import { sidebarOptions } from "../Constants";
 const Sidebar = () => {
   const flag = useSelector((store) => store.appState.toggleState);
-  return flag ? (
+  return !flag ? (
     <Wrapper>
       {sidebarOptions.map((item) => {
         return (
@@ -37,7 +37,7 @@ const Sidebar = () => {
     <Wrapper>
       {sidebarOptions.map((item) => {
         return (
-          <MainDiv key={item.key}>
+          <MainDiv flag={flag} key={item.key}>
             <div style={{ cursor: "pointer" }}>
               <span className="list-item">{item.icon()}</span>
             </div>
