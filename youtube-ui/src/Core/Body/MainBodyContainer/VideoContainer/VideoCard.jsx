@@ -2,10 +2,9 @@ import PropTypes from "prop-types";
 import { VideoCardDiv } from "../../Style";
 
 const VideoCard = ({ videoData }) => {
-  console.log("videoData", videoData);
-  //console.log("title", videoData?.snippet);
   const { id, snippet, statistics } = videoData;
   const { title, channelTitle, thumbnails } = snippet;
+
   return (
     <VideoCardDiv>
       <div className="video-card">
@@ -21,13 +20,6 @@ const VideoCard = ({ videoData }) => {
           </span>
         </div>
       </div>
-      {/* <iframe
-              src={`https://www.youtube.com/embed/${id}?si=co0v3siMpm_J_GU6`}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              // referrerpolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe> */}
     </VideoCardDiv>
   );
 };

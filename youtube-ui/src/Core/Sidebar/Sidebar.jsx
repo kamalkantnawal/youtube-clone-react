@@ -11,7 +11,7 @@ const Sidebar = () => {
           <MainDiv flag={flag} key={item.key}>
             <div style={{ cursor: "pointer" }}>
               <span className="list-item">{item.icon()}</span>
-              {item.label}
+              <span>{item.label}</span>
             </div>
           </MainDiv>
         );

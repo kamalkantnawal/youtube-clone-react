@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { dset } from "dset";
 const initialState = {
   toggleState: false,
+  bodymarginoff: false,
 };
 
 export const AppState = createSlice({

@@ -27,10 +27,4 @@ export const VideoCardDiv = styled.div`
   .thumbnail {
     border-radius: 12px;
   }
-  iframe {
-    width: 320px;
-    height: 180px;
-    border-radius: 12px;
-    margin: 10px;
-  }
 `;

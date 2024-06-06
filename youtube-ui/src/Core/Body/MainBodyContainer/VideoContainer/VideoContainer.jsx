@@ -1,29 +1,52 @@
 import axios from "axios";
 import { YOUTUBE_API } from "../../../Constants";
-import { useEffect, useState } from "react";
 import { VideoContainers } from "../../Style";
 import VideoCard from "./VideoCard";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateProperty } from "../../../../Store/Reducers/AppState";
+import ButtonList from "../ButtonList.jsx/ButtonList";
+import { useEffect, useState } from "react";
 
 const VideoContainer = () => {
+  const dispatch = useDispatch();
   const [videoData, setVideoData] = useState([]);
-  console.log("vide----------------", videoData.length);
+  const flag = useSelector((store) => store.appState.toggleState);
+
   const env = import.meta.env;
-  const url = YOUTUBE_API + env.VITE_API_CREDENTIAL;
+  const url = `${YOUTUBE_API}${env.VITE_API_CREDENTIAL}`;
+
   useEffect(() => {
     getData();
   }, []);
+
   const getData = async () => {
-    const data = await axios.get(url);
-    setVideoData(data?.data.items);
+    try {
+      const { data } = await axios.get(url);
+      setVideoData(data?.items);
+    } catch (error) {
+      console.error("Error fetching data: ", error);
+    }
   };
 
   return (
-    <VideoContainers>
-      {videoData.map((video) => (
-        <VideoCard key={video.id} videoData={video} />
-      ))}
-      {/* <VideoCard videoData={videoData} /> */}
-    </VideoContainers>
+    <div>
+      <ButtonList />
+      <VideoContainers>
+        {videoData?.map((video) => (
+          <Link
+            key={video?.id}
+            to={`/watch?v=${video?.id}`}
+            onClick={() => {
+              dispatch(updateProperty({ path: "toggleState", value: !flag }));
+              dispatch(updateProperty({ path: "bodymarginoff", value: true }));
+            }}
+          >
+            <VideoCard videoData={video} />
+          </Link>
+        ))}
+      </VideoContainers>
+    </div>
   );
 };
 

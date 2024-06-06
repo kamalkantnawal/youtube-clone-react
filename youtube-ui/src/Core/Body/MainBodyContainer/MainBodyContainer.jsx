@@ -1,11 +1,9 @@
-import ButtonList from "./ButtonList.jsx/ButtonList";
-import VideoContainer from "./VideoContainer/VideoContainer";
+import { Outlet } from "react-router-dom";
 
 const MainBodyContainer = () => {
   return (
     <div>
-      <ButtonList />
-      <VideoContainer />
+      <Outlet />
     </div>
   );
 };
