@@ -4,29 +4,46 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { YOUTUBE_SEARCH_API } from "../Constants";
 import { Button, Input } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { cacheResults } from "../../Store/Reducers/ProjectInfo";
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [showSuggestion, setShowSuggestion] = useState(false);
+  const dispatch = useDispatch();
+  const cacheSearch = useSelector((store) => store.project.cacheSearchResult);
   const url = YOUTUBE_SEARCH_API + searchQuery;
+
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      getSearchResult();
+      if (cacheSearch[searchQuery]) {
+        setSuggestion(cacheSearch[searchQuery]);
+        console.log("inside cache page");
+      } else {
+        getSearchResult();
+      }
     }, 200);
     return () => {
       clearTimeout(timeoutId);
     };
   }, [searchQuery]);
+
   const getSearchResult = async () => {
     try {
       const data = await axios(url);
       setSuggestion(data?.data[1]);
-      console.log("data", data?.data[1]);
+
+      dispatch(
+        cacheResults({
+          [searchQuery]: data?.data[1],
+        })
+      );
     } catch (err) {
       console.error("Error Fetching Search Result", err);
     }
   };
+
   return (
     <div>
       <SearchDiv>
@@ -41,7 +58,7 @@ const Search = () => {
           <IoMdSearch size={24} />
         </Button>
       </SearchDiv>
-      {suggestion.length > 0 && showSuggestion && (
+      {suggestion?.length > 0 && showSuggestion && (
         <Autocomplete>
           <ul>
             {suggestion.map((item, index) => (

@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Search from "./Search";
 import { IMG, Wrapper } from "./Style";
 import { updateProperty } from "../../Store/Reducers/AppState";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
