@@ -12,6 +12,7 @@
     "postcommit": "git push --all"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.0.18",
     "@reduxjs/toolkit": "^2.2.3",
     "antd": "^5.16.2",
     "axios": "^1.7.2",

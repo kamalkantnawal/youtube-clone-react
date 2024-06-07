@@ -36,10 +36,10 @@ export const SearchDiv = styled.div`
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 16px;
-    margin-bottom: 5px;
+    padding-left: 15px;
   }
   .button {
-    width: 100px;
+    width: 80px;
     border-top-left-radius: 0px;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
@@ -49,4 +49,24 @@ export const SearchDiv = styled.div`
 export const IMG = styled.img`
   height: 48px;
   cursor: pointer;
+`;
+export const Autocomplete = styled.div`
+  position: fixed;
+  background-color: #fff;
+  width: 40vw;
+  border-radius: 12px;
+  z-index: 5;
+  font-weight: bold;
+  padding-left: 10px;
+  cursor: pointer;
+  border: 0.5px solid #f1e9e9;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  .li {
+    margin: 5px;
+    padding: 5px;
+  }
+  .li:hover {
+    overflow: auto;
+    background-color: #dfdfdf;
+  }
 `;
