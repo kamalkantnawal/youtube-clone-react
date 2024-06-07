@@ -2,7 +2,6 @@ import { useSearchParams } from "react-router-dom";
 const WatchPage = () => {
   const [searchParam] = useSearchParams();
   const id = searchParam.get("v");
-  console.log("id", id);
   return (
     <div>
       <iframe
