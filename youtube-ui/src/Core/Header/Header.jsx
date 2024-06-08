@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Search from "./Search";
 import { IMG, Wrapper } from "./Style";
 import { updateProperty } from "../../Store/Reducers/AppState";
+import { FaRegUserCircle } from "react-icons/fa";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const Header = () => {
         <Search />
       </div>
       <div className="right-nav">
-        <IMG src="https://static.vecteezy.com/system/resources/thumbnails/005/545/335/small/user-sign-icon-person-symbol-human-avatar-isolated-on-white-backogrund-vector.jpg" />
+        <FaRegUserCircle style={{ marginTop: 13 }} size={24} />
       </div>
     </Wrapper>
   );

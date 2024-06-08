@@ -19,7 +19,6 @@ const Search = () => {
     const timeoutId = setTimeout(() => {
       if (cacheSearch[searchQuery]) {
         setSuggestion(cacheSearch[searchQuery]);
-        console.log("inside cache page");
       } else {
         getSearchResult();
       }

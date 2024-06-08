@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router-dom";
+import CommentContainer from "../CommentContainer/CommentContainerWrapper";
 const WatchPage = () => {
   const [searchParam] = useSearchParams();
   const id = searchParam.get("v");
@@ -13,6 +14,9 @@ const WatchPage = () => {
         // referrerpolicy="strict-origin-when-cross-origin"
         allowFullScreen
       ></iframe>
+      <div style={{ marginTop: 5 }}>
+        <CommentContainer />
+      </div>
     </div>
   );
 };
