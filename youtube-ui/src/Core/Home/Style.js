@@ -22,12 +22,9 @@ export const Wrapper = styled.div`
       width: ${({ flag }) => `calc(100% - ${flag ? "100px" : "200px"})`};
       height: 100%;
       position: relative;
-
       padding: ${({ bodymarginoff }) => (bodymarginoff ? 0 : "20px 10px")};
       margin: ${({ bodymarginoff }) => (bodymarginoff ? 0 : "15px")};
-      // padding: 20px 10px;
       transition: width 0.3s;
-      // margin: 15px;
       overflow: auto;
     }
   }
