@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { dset } from "dset";
 
 const initialState = {
   cacheSearchResult: {},
@@ -17,8 +16,8 @@ export const ProjectInfo = createSlice({
       );
     },
     chatData: (state, action) => {
-      const { path, value } = action.payload;
-      return dset(state, path, value);
+      state.livechatmessage.splice(15, 2);
+      state.livechatmessage.push(action.payload);
     },
   },
 });

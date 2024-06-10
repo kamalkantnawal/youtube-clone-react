@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
     width: 700px;
     width: 700px;
     height: 400px;
-
     position: relative;
   }
   .bottom-left {
@@ -19,19 +18,21 @@ export const Wrapper = styled.div`
     padding: 5px;
   }
   .top-right {
+    display: flex;
     border: 1px solid black;
     width: calc(100% - 780px);
     height: 400px;
     margin-left: 5px;
     margin-right: 5px;
     padding: 5px;
-    overflow: auto;
+    overflow-y: scroll;
     background-color: #f2f2f2;
     border-radius: 12px;
+    flex-direction: column-reverse;
   }
 `;
 export const ChatDiv = styled.div`
   display: flex;
   align-items: center;
-  padding: 3px;
+  padding: 10px;
 `;
